@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: petclinic-ingress-dev
   namespace: petclinic-dev
+  labels:
+    name: petclinic-ingress-dev
   annotations:
     kubernetes.io/ingress.class: nginx      # hoặc ingressClassName: nginx
 spec:

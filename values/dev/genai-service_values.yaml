@@ -1,6 +1,6 @@
 image:
   repository: csc11007/spring-petclinic-genai-service
-  tag: "main"
+  tag: "f98d5f0"
 
 replicas: 1
 

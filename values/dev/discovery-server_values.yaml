@@ -1,6 +1,6 @@
 image:
   repository: csc11007/spring-petclinic-discovery-server
-  tag: "main"
+  tag: "f98d5f0"
   pullPolicy: IfNotPresent
 
 replicas: 1

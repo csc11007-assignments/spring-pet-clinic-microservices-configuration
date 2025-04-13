@@ -13,11 +13,25 @@ service:
 env:
   - name: SPRING_PROFILES_ACTIVE
     value: docker
-  - name: CLOUD_CONFIG_URI
+  - name: CONFIG_SERVER_URL
     value: http://config-server:8888
   - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
-    value: http://discovery-server:8761/eureka
-
+    value: http://discovery-server:8761/eureka/
+  - name: EUREKA_INSTANCE_HOSTNAME
+    value: api-gateway
+  - name: EUREKA_CLIENT_REGISTER_WITH_EUREKA
+    value: "true"
+  - name: EUREKA_CLIENT_FETCH_REGISTRY
+    value: "true"
+  - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+    value: "false"
+  - name: SERVER_PORT
+    value: "8080"
+  - name: EUREKA_SERVER_ENABLE_SELF_PRESERVATION
+    value: "false"
+  - name: EUREKA_SERVER_WAIT_TIME_IN_MS_WHEN_SYNC_EMPTY
+    value: "0"
+    
 resources:
   limits:
     cpu: "500m"

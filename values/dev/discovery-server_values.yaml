@@ -13,6 +13,8 @@ service:
 env:
   - name: SPRING_PROFILES_ACTIVE
     value: docker
+  - name: SPRING_APPLICATION_NAME
+    value: DISCOVERY-SERVER
   - name: CONFIG_SERVER_URL
     value: http://config-server:8888
   - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE

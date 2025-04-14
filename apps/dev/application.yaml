@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: petclinic-dev
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/cascade: "true"
 spec:
   project: default
   source:
@@ -16,5 +20,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  syncOptions:
+      allowEmpty: false
+    syncOptions:
       - PrunePropagationPolicy=foreground
+      - PruneLast=true

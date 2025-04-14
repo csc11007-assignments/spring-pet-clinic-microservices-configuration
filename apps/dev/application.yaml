@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/csc11007-assignments/spring-pet-clinic-microservices-configuration
-    path: charts/spring-petclinic-service
+    path: charts/dev
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc

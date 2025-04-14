@@ -1,43 +1,29 @@
+{{- range $name, $config := .Values.services }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "petclinic.fullname" . }}
+  name: {{ $config.containerName }}
+  namespace: {{ $.Values.namespace }}
   labels:
-    app: {{ include "petclinic.name" . }}
+    app: {{ $config.containerName }}
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ $.Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "petclinic.name" . }}
+      app: {{ $config.containerName }}
   template:
     metadata:
       labels:
-        app: {{ include "petclinic.name" . }}
+        app: {{ $config.containerName }}
     spec:
       containers:
-        - name: {{ include "petclinic.name" . }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: {{ $config.containerName }}
+          image: {{ $config.image }}:{{ $config.tag }} 
+          imagePullPolicy: Always
           ports:
-            - containerPort: {{ .Values.service.port }}
+            - containerPort: {{ $config.port }}
           env:
-            {{- range .Values.env }}
-            - name: {{ .name }}
-              value: {{ .value | quote }}
-            {{- end }}
             - name: EUREKA_INSTANCE_HOSTNAME
-              value: {{ include "petclinic.name" . }}
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-          readinessProbe:
-            httpGet:
-              path: {{ .Values.readinessProbe.path }}
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
-          livenessProbe:
-            httpGet:
-              path: {{ .Values.livenessProbe.path }}
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+              value: {{ $config.containerName }}
+{{- end }}

@@ -1,13 +1,16 @@
+{{- range $name, $config := .Values.services }}
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.service.name | default (include "petclinic.fullname" .) }}
-  labels:
-    app: {{ include "petclinic.name" . }}
+  name: {{ $config.containerName }}
+  namespace: {{ $.Values.namespace }}
 spec:
-  type: {{ .Values.service.type }}
   selector:
-    app: {{ include "petclinic.name" . }}
+    app: {{ $config.containerName }}
+  type: ClusterIP
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.port }}
+    - protocol: TCP
+      port: {{ $config.port }}
+      targetPort: {{ $config.port }}
+{{- end }}

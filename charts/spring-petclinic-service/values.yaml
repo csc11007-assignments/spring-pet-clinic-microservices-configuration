@@ -1,32 +1,46 @@
-replicas: 2
-
-image:
-  repository: csc11007/spring-petclinic-customers-service
-  tag: main
-  pullPolicy: IfNotPresent
-
-service:
-  type: ClusterIP
-  port: 8080
-
-resources:
-  limits:
-    cpu: "500m"
-    memory: "512Mi"
-  requests:
-    cpu: "200m"
-    memory: "256Mi"
-
-env: []
-
-livenessProbe:
-  path: /actuator/health
-  port: 8080
-  initialDelaySeconds: 15
-  periodSeconds: 10
-
-readinessProbe:
-  path: /actuator/health
-  port: 8080
-  initialDelaySeconds: 5
-  periodSeconds: 5
+namespace: petclinic-dev
+services:
+  config-server:
+    containerName: config-server
+    image: csc11007/spring-petclinic-config-server
+    tag: latest
+    port: 8888
+  customers-service:
+    containerName: customers-service
+    image: csc11007/spring-petclinic-customers-service
+    tag: latest
+    port: 8081
+  discovery-server:
+    containerName: discovery-server
+    image: csc11007/spring-petclinic-discovery-server
+    tag: latest
+    port: 8761
+  visits-service:
+    containerName: visits-service
+    image: csc11007/spring-petclinic-visits-service
+    tag: latest
+    port: 8082
+  vets-service:
+    containerName: vets-service
+    image: csc11007/spring-petclinic-vets-service
+    tag: latest
+    port: 8083
+  genai-service:
+    containerName: genai-service
+    image: csc11007/spring-petclinic-genai-service
+    tag: latest
+    port: 8084
+  api-gateway:
+    containerName: api-gateway
+    image: csc11007/spring-petclinic-api-gateway
+    tag: latest
+    port: 8080
+    ingress:
+      enabled: true
+      host: petclinic-dev.tech
+  admin-server:
+    containerName: admin-server
+    image: csc11007/spring-petclinic-admin-server
+    tag: latest
+    port: 9090
+replicaCount: 1

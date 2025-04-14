@@ -1,6 +1,6 @@
 image:
   repository: csc11007/spring-petclinic-vets-service
-  tag: 9e90732
+  tag: "cea5f3d"
   pullPolicy: IfNotPresent
 
 replicas: 1

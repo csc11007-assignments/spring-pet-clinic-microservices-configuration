@@ -1,6 +1,6 @@
 image:
   repository: csc11007/spring-petclinic-visits-service
-  tag: 9e90732
+  tag: "b1c47ab"
   pullPolicy: IfNotPresent
 
 replicas: 1

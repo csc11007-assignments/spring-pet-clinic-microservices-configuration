@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: admin.petclinic-dev.csc11007.com
+    - host: admin.petclinic-dev.com
       http:
         paths:
           - path: "/"

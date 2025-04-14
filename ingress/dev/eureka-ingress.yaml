@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: eureka.petclinic-dev.csc11007.com
+    - host: eureka.petclinic-dev.com
       http:
         paths:
           - path: "/"

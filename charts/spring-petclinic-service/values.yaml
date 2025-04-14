@@ -35,8 +35,6 @@ services:
     image: csc11007/spring-petclinic-api-gateway
     tag: latest
     port: 8080
-    ingress:
-      enabled: true
   admin-server:
     containerName: admin-server
     image: csc11007/spring-petclinic-admin-server

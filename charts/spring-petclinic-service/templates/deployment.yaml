@@ -25,6 +25,8 @@ spec:
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
+            - name: EUREKA_INSTANCE_HOSTNAME
+              value: {{ include "petclinic.name" . }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:

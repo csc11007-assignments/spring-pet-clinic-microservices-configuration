@@ -15,6 +15,9 @@ services:
     image: csc11007/spring-petclinic-discovery-server
     tag: main
     port: 8761
+    ingress:
+      enabled: true
+      host: eureka.petclinic-dev.com
   visits-service:
     containerName: visits-service
     image: csc11007/spring-petclinic-visits-service
@@ -35,9 +38,15 @@ services:
     image: csc11007/spring-petclinic-api-gateway
     tag: main
     port: 8080
+    ingress:
+      enabled: true
+      host: petclinic-dev.com
   admin-server:
     containerName: admin-server
     image: csc11007/spring-petclinic-admin-server
     tag: main
     port: 9090
+    ingress:
+      enabled: true
+      host: admin.petclinic-dev.com
 replicaCount: 1

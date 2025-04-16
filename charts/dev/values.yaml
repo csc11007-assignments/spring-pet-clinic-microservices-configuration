@@ -18,12 +18,12 @@ services:
   visits-service:
     containerName: visits-service
     image: csc11007/spring-petclinic-visits-service
-    tag: latest
+    tag: fa1ded6
     port: 8082
   vets-service:
     containerName: vets-service
     image: csc11007/spring-petclinic-vets-service
-    tag: latest
+    tag: fa1ded6
     port: 8083
   genai-service:
     containerName: genai-service

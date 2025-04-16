@@ -1,8 +1,7 @@
-# apps/dev/ingress-dev.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-dev
+  name: petclinic-staging
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,11 +11,11 @@ spec:
   project: default
   source:
     repoURL: https://github.com/csc11007-assignments/spring-pet-clinic-microservices-configuration
-    path: ingress/dev
+    path: charts/staging
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: petclinic-dev
+    namespace: petclinic-staging
   syncPolicy:
     automated:
       prune: true

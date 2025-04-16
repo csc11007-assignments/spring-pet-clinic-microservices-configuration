@@ -1,0 +1,57 @@
+namespace: petclinic-staging
+services:
+  config-server:
+    containerName: config-server
+    image: csc11007/spring-petclinic-config-server
+    tag: main
+    port: 8888
+  customers-service:
+    containerName: customers-service
+    image: csc11007/spring-petclinic-customers-service
+    tag: main
+    port: 8081
+  discovery-server:
+    containerName: discovery-server
+    image: csc11007/spring-petclinic-discovery-server
+    tag: main
+    port: 8761
+  visits-service:
+    containerName: visits-service
+    image: csc11007/spring-petclinic-visits-service
+    tag: main
+    port: 8082
+  vets-service:
+    containerName: vets-service
+    image: csc11007/spring-petclinic-vets-service
+    tag: main
+    port: 8083
+  genai-service:
+    containerName: genai-service
+    image: csc11007/spring-petclinic-genai-service
+    tag: main
+    port: 8084
+  api-gateway:
+    containerName: api-gateway
+    image: csc11007/spring-petclinic-api-gateway
+    tag: main
+    port: 8080
+    ingress:
+      enabled: true
+      host: petclinic-staging.com
+  admin-server:
+    containerName: admin-server
+    image: csc11007/spring-petclinic-admin-server
+    tag: main
+    port: 9090
+    ingress:
+      enabled: true
+      host: admin.petclinic-staging.com
+  discovery-server-ingress:
+    containerName: discovery-server
+    image: csc11007/spring-petclinic-discovery-server
+    tag: main
+    port: 8761
+    ingress:
+      enabled: true
+      host: eureka.petclinic-staging.com
+replicaCount: 1

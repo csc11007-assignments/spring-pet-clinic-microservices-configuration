@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/csc11007-assignments/spring-pet-clinic-microservices-configuration
     path: apps/common
-    targetRevision: configure
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx

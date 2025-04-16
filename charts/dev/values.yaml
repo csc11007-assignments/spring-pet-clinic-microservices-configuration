@@ -38,6 +38,6 @@ services:
   admin-server:
     containerName: admin-server
     image: csc11007/spring-petclinic-admin-server
-    tag: latest
+    tag: f0e2df3
     port: 9090
 replicaCount: 1

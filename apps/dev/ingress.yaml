@@ -4,10 +4,6 @@ kind: Application
 metadata:
   name: ingress-dev
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/cascade: "true"
 spec:
   project: default
   source:

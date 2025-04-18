@@ -4,7 +4,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ $config.containerName }}
-  namespace: {{ $.Values.namespace }}
   labels:
     app: {{ $config.containerName }}
 spec:
@@ -19,7 +18,7 @@ spec:
     spec:
       containers:
         - name: {{ $config.containerName }}
-          image: {{ $config.image }}:{{ $config.tag }} 
+          image: {{ $config.image }}:{{ $config.tag }}-{{ if $config.commit }}{{ $config.commit }}{{ else }}{{ $.Values.version }}{{ end }}
           imagePullPolicy: Always
           ports:
             - containerPort: {{ $config.port }}

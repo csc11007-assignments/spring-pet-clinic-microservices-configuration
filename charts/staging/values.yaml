@@ -1,4 +1,3 @@
-version: "main"
 services:
   config-server:
     containerName: config-server

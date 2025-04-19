@@ -20,3 +20,4 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground
       - PruneLast=true
+

@@ -18,7 +18,7 @@ services:
   visits-service:
     containerName: visits-service
     image: csc11007/spring-petclinic-visits-service
-    tag: c30d9a5
+    tag: 8cb8714
     port: 8082
   vets-service:
     containerName: vets-service

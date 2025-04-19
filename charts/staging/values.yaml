@@ -3,37 +3,37 @@ services:
   config-server:
     containerName: config-server
     image: csc11007/spring-petclinic-config-server
-    tag: v1.0.3
+    tag: v1.7
     port: 8888
   customers-service:
     containerName: customers-service
     image: csc11007/spring-petclinic-customers-service
-    tag: v1.0.3
+    tag: v1.7
     port: 8081
   discovery-server:
     containerName: discovery-server
     image: csc11007/spring-petclinic-discovery-server
-    tag: v1.0.3
+    tag: v1.7
     port: 8761
   visits-service:
     containerName: visits-service
     image: csc11007/spring-petclinic-visits-service
-    tag: v1.0.3
+    tag: v1.7
     port: 8082
   vets-service:
     containerName: vets-service
     image: csc11007/spring-petclinic-vets-service
-    tag: v1.0.3
+    tag: v1.7
     port: 8083
   genai-service:
     containerName: genai-service
     image: csc11007/spring-petclinic-genai-service
-    tag: v1.0.3
+    tag: v1.7
     port: 8084
   api-gateway:
     containerName: api-gateway
     image: csc11007/spring-petclinic-api-gateway
-    tag: v1.0.3
+    tag: v1.7
     port: 8080
     ingress:
       enabled: true
@@ -41,6 +41,6 @@ services:
   admin-server:
     containerName: admin-server
     image: csc11007/spring-petclinic-admin-server
-    tag: v1.0.3
+    tag: v1.7
     port: 9090
 replicaCount: 1

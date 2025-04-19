@@ -3,7 +3,7 @@ services:
   config-server:
     containerName: config-server
     image: csc11007/spring-petclinic-config-server
-    tag: main
+    tag: 1f32a2b
     port: 8888
   customers-service:
     containerName: customers-service
@@ -18,12 +18,12 @@ services:
   visits-service:
     containerName: visits-service
     image: csc11007/spring-petclinic-visits-service
-    tag: 418fd83
+    tag: 1f32a2b
     port: 8082
   vets-service:
     containerName: vets-service
     image: csc11007/spring-petclinic-vets-service
-    tag: 418fd83
+    tag: 1f32a2b
     port: 8083
   genai-service:
     containerName: genai-service

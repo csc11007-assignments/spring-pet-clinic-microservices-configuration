@@ -18,17 +18,17 @@ services:
   visits-service:
     containerName: visits-service
     image: csc11007/spring-petclinic-visits-service
-    tag: 1df6af3
+    tag: ed7e1a6
     port: 8082
   vets-service:
     containerName: vets-service
     image: csc11007/spring-petclinic-vets-service
-    tag: 1f32a2b
+    tag: ed7e1a6
     port: 8083
   genai-service:
     containerName: genai-service
     image: csc11007/spring-petclinic-genai-service
-    tag: main
+    tag: ed7e1a6
     port: 8084
   api-gateway:
     containerName: api-gateway
